@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ page_title|default:"Meu Site" }}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{{ meta_description|default:"Site em Django sobre [seu nicho]." }}{% endblock %}">
+
+  {# Canonical #}
+  <link rel="canonical" href="{% if canonical_url %}{{ canonical_url }}{% else %}{{ request.build_absolute_uri|cut:'?'}}{% endif %}">
+
+  {# Open Graph #}
+  <meta property="og:site_name" content="{{ site_name|default:'Meu Site' }}">
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+  <meta property="og:title" content="{% block og_title %}{{ page_title|default:'Meu Site' }}{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}{{ meta_description|default:'Site em Django sobre [seu nicho].' }}{% endblock %}">
+  <meta property="og:url" content="{{ request.build_absolute_uri|cut:'?' }}">
+
+  {# Twitter #}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% block tw_title %}{{ page_title|default:'Meu Site' }}{% endblock %}">
+  <meta name="twitter:description" content="{% block tw_desc %}{{ meta_description|default:'Site em Django sobre [seu nicho].' }}{% endblock %}">
+
+  {# JSON-LD simples: Site/Organização #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/",
+    "name": "{{ site_name|default:'Meu Site' }}",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ request.scheme }}://{{ request.get_host }}/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">Início</a> • <a href="/sobre/">Sobre</a> • <a href="/contato/">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <small>© {{ site_name|default:"Meu Site" }}</small>
+  </footer>
+</body>
+</html>
