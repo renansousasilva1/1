@@ -1,5 +1,16 @@
+# Core Django
 Django==4.2.17
-gunicorn==23.0.0
-whitenoise==6.9.0
 sqlparse==0.5.3
 asgiref==3.8.1
+
+# WSGI Server
+gunicorn==23.0.0
+
+# Static files in production
+whitenoise==6.9.0
+
+# Database config (para usar DATABASE_URL)
+dj-database-url==2.3.0
+
+# Postgres driver (necessário se for usar PostgreSQL na DO)
+psycopg[binary]==3.2.3
