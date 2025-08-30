@@ -1,4 +1,6 @@
+import os
 from pathlib import Path
+import dj_database_url
 
 # Caminhos base
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -90,3 +92,4 @@ SITE_NAME = "Meu Site"
 
 # Campo padrão para IDs
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
