@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Segurança
 SECRET_KEY = 'django-insecure-vw+&1b(h1y+^u&lvnx9dcezcuz7(04lkp9$%d4y8eysgmxu+o_'
 DEBUG = True  # ⚠️ Em produção, altere para False
-ALLOWED_HOSTS = ['wwww.walrus-app-7rzlu.ondigitalocean.app', 'www.pistanews.com.br']  # Ex.: ['seudominio.com', 'www.seudominio.com']
+ALLOWED_HOSTS = ['walrus-app-7rzlu.ondigitalocean.app', 'pistanews.com.br']  # Ex.: ['seudominio.com', 'www.seudominio.com']
 
 # Aplicativos instalados
 INSTALLED_APPS = [
@@ -90,4 +90,5 @@ SITE_NAME = "Meu Site"
 
 # Campo padrão para IDs
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
